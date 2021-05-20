@@ -252,7 +252,7 @@ class User(db.Model):
     form_of_payment = db.Column(db.String(64))
     donation_frequency = db.Column(db.String(64))
     donation_amount = db.Column(db.Integer)
-    comment = db.Column(db.Text, nullable=True)
+    further_comment = db.Column(db.Text, nullable=True)
 
 
 @app.shell_context_processor

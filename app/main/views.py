@@ -8,6 +8,7 @@ from .forms import NameForm, ReviewForm
 def index():
     form = NameForm()
     if form.validate_on_submit():
+        print(form.donation_frequency.data)
         session["last_name"] = form.last_name.data
         session["first_name"] = form.first_name.data
         session["street_address"] = form.state.data

@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField, FloatField, TextAreaField
 from wtforms.validators import DataRequired, Email, Optional, NumberRange
 
-countries = (
+countries = [
     "Afghanistan",
     "Albania",
     "Algeria",
@@ -198,8 +198,8 @@ countries = (
     "Vietnam",
     "Yemen",
     "Zambia",
-    "Zimbabwe",
-)
+    "Zimbabwe"
+]
 
 
 class NameForm(FlaskForm):
@@ -208,20 +208,21 @@ class NameForm(FlaskForm):
     street_address = StringField("Street Adress", validators=[DataRequired()])
     city = StringField("City", validators=[DataRequired()])
     state = StringField("State/Region", validators=[DataRequired()])
-    country = SelectField(label="Country", choices=countries)
+    text = SelectField(label="The test", choices=[('1', '8am'), ('2', '10am') ])
+    #country = SelectField(label="Country", choices=countries)
     postal_code = StringField("Postal Code", validators=[DataRequired()])
     phone_number = IntegerField("Phone number", validators=[Optional()])
     email_address = StringField("Email", validators=[Email()])
     form_of_contact = SelectField(
         label="Preferred form of contact",
-        choices=["phone", "email"],
+        choices=[('phone', "phone"), ('email', "email")],
         validators=[DataRequired()],
     )
     form_of_payment = SelectField(
-        label="Preferred form of payment", choices=["USD", "Euro", "Bitcoin"]
+        label="Preferred form of payment", choices=[('USD', "USD"), ("Euro","Euro"), ("Bitcoin","Bitcoin")]
     )
     donation_frequency = SelectField(
-        label="Frequency of donation", choices=["Monthly", "Yearly", "One-time"]
+        label="Frequency of donation", choices=[("Monthly", "Monthly"), ("Yearly", "Yearly"), ("One-time", "One-time")]
     )
     donation_amount = FloatField(
         "Amount of donation", validators=[NumberRange(min=1.00, max=1000000.00)]
