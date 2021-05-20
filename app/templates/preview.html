@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Donate please{% endblock %}
+{% block page_content %}
+
+
+<div class="container">
+    <b>Last name</b>: {{ last_name }}
+</div>
+ <br>
+
+<div class="container">
+    First name: {{ first_name }}
+</div>
+ <br>
+
+<div class="container">
+    Street Address: {{ street_address }}
+</div>
+ <br>
+
+<div class="container">
+    City: {{ city }}
+</div>
+ <br>
+
+<div class="container">
+    State: {{ state }}
+</div>
+ <br>
+
+
+<div class="container">
+    Country: {{ country }}
+</div>
+ <br>
+
+<div class="container">
+    Postal Code: {{ postal_code }}
+</div>
+ <br>
+
+<div class="container">
+    Phone Number: {{ phone_number }}
+</div>
+ <br>
+
+<div class="container">
+    Email Address: {{ email_address }}
+</div>
+ <br>
+
+ <div class="container">
+    Preferred form of contact: {{ contact_form }}
+</div>
+ <br>
+
+<div class="container">
+    Preferred form of payment: {{ payment_form }}
+</div>
+ <br>
+
+<div class="container">
+    Frequency of donation: {{ donation_frequency }}
+</div>
+ <br>
+
+<div class="container">
+    Further comment: {{ further_comment }}
+</div>
+ <br>
+
+{{  wtf.quick_form(form)  }}
+
+{% endblock %}
