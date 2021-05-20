@@ -12,7 +12,6 @@ class NameForm(FlaskForm):
     street_address = StringField("Street Adress", validators=[DataRequired()])
     city = StringField("City", validators=[DataRequired()])
     state = StringField("State/Region", validators=[DataRequired()])
-    text = SelectField(label="The test", choices=[('1', '8am'), ('2', '10am') ])
     country = SelectField(label="Country", choices=countries)
     postal_code = StringField("Postal Code", validators=[DataRequired()])
     phone_number = IntegerField("Phone number", validators=[Optional()])
