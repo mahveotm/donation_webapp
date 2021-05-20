@@ -23,7 +23,8 @@ def index():
         session["donation_frequency"] = form.donation_frequency.data
         session["donation_amount"] = form.donation_amount.data
         session["further_comment"] = form.further_comment.data
-
+        if form.donation_frequency.data == "Monthly":
+            session["donation_amount"] = form.donation_amount.data * 12
         return redirect(url_for("main.preview"))
     return render_template("index.html", form=form)
 
@@ -70,6 +71,7 @@ def preview():
             contact_form=session.get("form_of_contact"),
             payment_form=session.get("form_of_payment"),
             donation_frequency=session.get("donation_frequency"),
+            donation_amount=session.get("donation_amount"),
             further_comment=session.get("further_comment"),
         )
     return redirect("/")
